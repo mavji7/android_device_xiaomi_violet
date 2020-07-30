@@ -16,6 +16,9 @@ allow system_app sysfs_tbrightness:file { open getattr write };
 
 get_prop(system_app, vendor_default_prop)
 
+allow system_app sysfs_zram:dir search;
+allow system_app sysfs_zram:file r_file_perms;
+
 # Battery Health
 allow system_app sysfs_battery_supply:dir { search };
 allow system_app sysfs_battery_supply:file { read };
