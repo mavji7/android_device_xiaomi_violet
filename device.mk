@@ -169,6 +169,10 @@ PRODUCT_PACKAGES += \
     com.quicinc.cne \
     services-ext
 
+# Config Store
+PRODUCT_PACKAGES += \
+    disable_configstore
+
 # Device-specific settings
 PRODUCT_PACKAGES += \
     VioletParts
