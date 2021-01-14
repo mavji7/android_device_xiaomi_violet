@@ -1,6 +1,6 @@
 #
 # Copyright (C) 2018-2020 The LineageOS Project
-# Copyright (C) 2020 The SuperiorOS Project
+# Copyright (C) 2020 The XtendedOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -10,6 +10,7 @@ BOARD_VENDOR := xiaomi
 DEVICE_PATH := device/xiaomi/violet
 
 # Build
+BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
 
 # Architecture
@@ -49,6 +50,7 @@ BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
 # Kernel
 BOARD_BOOT_HEADER_VERSION := 1
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.console=ttyMSM0 service_locator.enable=1 swiotlb=1 earlycon=msm_geni_serial,0x880000 loop.max_part=7
+#BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_CMDLINE +=  androidboot.vbmeta.avb_version=1.0
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
@@ -196,6 +198,7 @@ VENDOR_SECURITY_PATCH := 2020-12-01
 
 # Sepolicy
 TARGET_SEPOLICY_DIR := msmsteppe
+SELINUX_IGNORE_NEVERALLOWS=true
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/public
