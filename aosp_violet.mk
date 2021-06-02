@@ -11,7 +11,6 @@ $(call inherit-product, device/xiaomi/violet/device.mk)
 # Inherit some common Aosp-Extended stuff.
 $(call inherit-product, vendor/aosp/common.mk)
 TARGET_BOOT_ANIMATION_RES := 1080
-TARGET_GAPPS_ARCH := arm64
 
 # Inherit GMS, Pixel Features, and Modules.
 -include vendor/google/gms/config.mk
@@ -33,3 +32,12 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME="violet"
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+
+
+# Build with GApps if GAPPS_BUILD is true
+ifeq ($(GAPPS_BUILD),true)
+    WITH_GAPPS := true
+    TARGET_GAPPS_ARCH := arm64
+    IS_PHONE := true
+    TARGET_SHIPS_SEPERATE_GAPPS_BUILD := true
+endif
