@@ -1,6 +1,6 @@
 #
 # Copyright (C) 2018-2020 The LineageOS Project
-# Copyright (C) 2020 The PixelExperience Project
+# Copyright (C) 2020 The Aosp-Extended Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -8,11 +8,19 @@
 # Inherit from violet device
 $(call inherit-product, device/xiaomi/violet/device.mk)
 
-# Inherit some common Pixel Experience stuff.
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+# Inherit some common Aosp-Extended stuff.
+$(call inherit-product, vendor/aosp/common.mk)
 TARGET_BOOT_ANIMATION_RES := 1080
-TARGET_USES_AOSP_RECOVERY := true
-IS_PHONE := true
+TARGET_GAPPS_ARCH := arm64
+
+# Inherit GMS, Pixel Features, and Modules.
+-include vendor/google/gms/config.mk
+
+# Don't preoptimize prebuilts when building GMS.
+DONT_DEXPREOPT_PREBUILTS := true
+
+# Pixel Features
+-include vendor/google/pixel/config.mk
 
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := aosp_violet
