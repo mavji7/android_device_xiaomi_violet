@@ -1,6 +1,6 @@
 #
 # Copyright (C) 2018-2020 The LineageOS Project
-# Copyright (C) 2020 The SuperiorOS Project
+# Copyright (C) 2020 The XtendedOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -199,6 +199,7 @@ TARGET_USES_PRE_UPLINK_FEATURES_NETMGRD := true
 VENDOR_SECURITY_PATCH := 2021-02-01
 
 # Sepolicy
+SELINUX_IGNORE_NEVERALLOWS := true
 TARGET_SEPOLICY_DIR := msmsteppe
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
