@@ -1,6 +1,6 @@
 #
 # Copyright (C) 2018-2020 The LineageOS Project
-# Copyright (C) 2020 The SuperiorOS Project
+# Copyright (C) 2020 The Aosp-Extended Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -200,6 +200,7 @@ VENDOR_SECURITY_PATCH := 2021-02-01
 
 # Sepolicy
 TARGET_SEPOLICY_DIR := msmsteppe
+SELINUX_IGNORE_NEVERALLOWS := true
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/public
